@@ -1,0 +1,103 @@
+@model IEnumerable<HomeBudgetTracker.Models.Expense>
+
+@{
+    ViewData["Title"] = "Wydatki";
+}
+
+<h1>Lista wydatków</h1>
+    <form method="get" class="mb-3">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <input
+                type="text"
+                name="search"
+                class="form-control"
+                placeholder="Szukaj kategorii..." />
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button
+                type="submit"
+                class="btn btn-primary">
+                Szukaj
+            </button>
+
+        </div>
+        <form method="get" class="mb-4">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <input type="date"
+                   name="fromDate"
+                   class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <input type="date"
+                   name="toDate"
+                   class="form-control" />
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-success">
+                Filtruj
+            </button>
+        </div>
+
+    </div>
+
+</form>
+
+    </div>
+
+</form>
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Dodaj wydatek
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Kategoria</th>
+            <th>Kwota</th>
+            <th>Data</th>
+            <th>Opis</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Category</td>
+            <td>@item.Amount.ToString("N2") zł</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td>@item.Description</td>
+            <td>
+                <a asp-action="Edit"
+                    asp-route-id="@item.Id"
+                    class="btn btn-warning btn-sm">
+                    Edytuj
+                </a>
+
+                <a asp-action="Delete"
+                    asp-route-id="@item.Id"
+                    class="btn btn-danger btn-sm">
+                    Usuń
+                </a>
+</td>
+        </tr>
+    }
+
+    </tbody>
+</table>

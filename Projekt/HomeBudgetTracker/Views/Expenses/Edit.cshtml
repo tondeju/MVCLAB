@@ -1,0 +1,39 @@
+@model HomeBudgetTracker.Models.Expense
+
+<h1>Edytuj wydatek</h1>
+
+<form asp-action="Edit">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Category"></label>
+        <input asp-for="Category"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Date"></label>
+        <input asp-for="Date"
+               type="date"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Zapisz
+    </button>
+
+</form>

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+
+    <h1>System monitorowania wydatków</h1>
+
+</div>
+
+<div class="row mt-4">
+
+    <div class="col-md-6">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h3>Łączne wydatki</h3>
+
+                <h1>
+                    @(((decimal)ViewBag.Total).ToString("N2")) zł
+                </h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h3>Liczba wydatków</h3>
+
+                <h1>
+                    @ViewBag.Count
+                </h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <h3>Największy wydatek</h3>
+
+            <h1>
+                @(((decimal)ViewBag.MaxExpense).ToString("N2")) zł
+            </h1>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</div>
